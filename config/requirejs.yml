@@ -1,0 +1,8 @@
+paths:
+  'jquery': 'jquery/dist/jquery'
+  'jquery-ujs': 'jquery-ujs/src/rails'
+  'hogan': 'hogan/web/builds/1.0.5/hogan-1.0.5.amd'
+  'bootstrap': 'bootstrap/dist/js/bootstrap'
+  'raphael': 'raphael/raphael'
+  'bootstrap-datetimepicker': 'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min'
+  'moment': 'moment/min/moment.min'

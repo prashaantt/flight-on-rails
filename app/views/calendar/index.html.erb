@@ -1,0 +1,106 @@
+<div class="page-header text-center">
+  <h1>The Flight-on-Rails Calendar</h1>
+</div>
+<div class="col-lg-8 date-selector">
+  <div class="text-center">
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <select class="form-control month"></select>
+        <script id="month-template" type="text/template">
+          {{#months}}
+            <option value="{{value}}">{{month}}</option>
+          {{/months}}
+        </script>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="form-group">
+            <select class="form-control year"></select>
+            <script id="year-template" type="text/template">
+              {{#years}}
+                <option value="{{.}}">{{.}}</option>
+              {{/years}}
+            </script>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="calendar"></div>
+</div>
+<div class="col-lg-4 event-selector">
+  <div class="day">
+    <div class="heading"></div>
+    <div class="panel-group events"></div>
+  </div>
+  <script id="heading-template" type="text/template">
+    <h4 style="display:inline-block">{{#formatDate}}{{date}}{{/formatDate}}</h4>
+    <button class="btn btn-link pull-right js-add-event" data-date="{{date}}">Add event</button>
+  </script>
+  <script id="events-template" type="text/template" data-test="yo">
+    {{#events}}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <span class="event-time">{{#formatTime}}{{start}}{{/formatTime}}-{{#formatTime}}{{end}}{{/formatTime}}</span><br>
+            <a data-toggle="collapse" data-parent="#events" href="#{{id}}">
+              {{title}}
+            </a>
+          </h4>
+        </div>
+        <div id="{{id}}" class="panel-collapse collapse">
+          <div class="panel-body">
+            <small>Who</small>
+            <ul style="list-style:none">
+              {{#attendees}}
+                <li>{{.}}</li>
+              {{/attendees}}
+            </ul>
+            <small>Where</small>
+            <ul style="list-style:none">
+              <li>{{loc}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    {{/events}}
+  </script>
+</div>
+<form class="event-editor">
+  <div class="modal fade event-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <label for="title">Title</label>
+          <input type="text" class="form-control title">
+        </div>
+        <div class="modal-body">
+          <label for="start">Starts</label>
+          <div class="input-group date start-picker">
+            <input type="text" class="form-control start" />
+            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+          </div>
+          <label for="end">Ends</label>
+          <div class="input-group date end-picker">
+            <input type="text" class="form-control end" />
+            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+          </div>
+          <div class="form-group">
+            <label for="attendees">Attendees</label>
+            <textarea class="form-control attendees" rows="3" style="resize:none"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="loc">Location</label>
+            <textarea class="form-control loc" rows="3" style="resize:none"></textarea>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+@import "eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min";
+
+.events {
+  padding-left: 10px;
+}
+
+.event-time {
+  font-size: 80%;
+}
+
+.bootstrap-datetimepicker-widget {
+  z-index: 2000;
+}
+
+.date {
+  margin-bottom: 15px
+}

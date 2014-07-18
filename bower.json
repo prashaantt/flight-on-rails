@@ -1,0 +1,28 @@
+{
+  "name": "flight-on-rails",
+  "version": "0.0.0",
+  "authors": [
+    "Prashant Tiwari <prashaantt@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11",
+    "jquery-ujs": "*",
+    "bootstrap": "3.x.x",
+    "flight": "flightjs/flight#master",
+    "hogan": "~3.0.2",
+    "raphael": "~2.1.2",
+    "eonasdan-bootstrap-datetimepicker": "~3.0.0"
+  }
+}
